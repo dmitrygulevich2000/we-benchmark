@@ -1,0 +1,10 @@
+{
+  "name": "we-operation",
+  "version": "0.0.1",
+  "main": "index.js",
+  "dependencies": {
+    "@wavesenterprise/sdk": "^1.1.1",
+    "@wavesenterprise/signer": "^1.0.5",
+    "@wavesenterprise/transactions-factory": "^2.1.3"
+  }
+} 

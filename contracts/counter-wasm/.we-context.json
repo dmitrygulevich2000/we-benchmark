@@ -1,0 +1,9 @@
+{
+    "nodeUrl": "http://localhost:6862",
+    "contractName": "CounterWasm",
+    "bytecode": "AGFzbQEAAAABFgNgA39/fgF/YAR/f39/An9+YAF+AX8CPgMDZW52Bm1lbW9yeQIBAhAEZW52MA9zZXRfc3RvcmFnZV9pbnQAAARlbnYwD2dldF9zdG9yYWdlX2ludAABAwMCAgIEBQFwAQEBBhADfwFBEAt/AEEXC38AQSALBz0FDF9jb25zdHJ1Y3RvcgACCWluY3JlbWVudAADA3NldAACCl9fZGF0YV9lbmQDAQtfX2hlYXBfYmFzZQMCCk0CEgBBkICAgABBByAAEICAgIAACzgCAX4BfwJAQQBBAEGQgICAAEEHEIGAgIAAIQEiAg0AQZCAgIAAQQcgASAAfBCAgICAACECCyACCwsNAQBBEAsHY291bnRlcg==",
+    "bytecodeHash": "46680067bed74952d550c10ad960d91b660ead4c1f6bc015bb4368f21aead745",
+    "contractId": "D1u1Z7vmg89BWoAePJpAcTcSvJWr6EQPiePdnjbUg22H",
+    "contractVersion": 1,
+    "contractValidation": false
+}

@@ -1,0 +1,9 @@
+{
+  "name": "we-benchmark",
+  "version": "0.0.1",
+  "description": "Benchmarks and experiments on Waves Enterprise local network",
+  "author": "Dmitry Gulevich",
+  "workspaces": [
+    "operation"
+  ]
+}
