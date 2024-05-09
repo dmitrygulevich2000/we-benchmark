@@ -75,12 +75,13 @@ class WEContext {
     }
 
     async permission(op, role) {
-        this.#checkDefined('nodeAddress', 'address')
+        this.#checkDefined('nodeAddress', 'nodeKeystorePassword', 'address')
         const tx = {
             type: 102,
             version: 1,
             fee: 0,
             sender: this.context.nodeAddress,
+            password: this.context.nodeKeystorePassword,
             target: this.context.address,
             opType: op,
             role: role,

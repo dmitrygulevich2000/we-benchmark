@@ -551,11 +551,11 @@
             "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
-            "pointSize": 5,
+            "pointSize": 3,
             "scaleDistribution": {
               "type": "linear"
             },
-            "showPoints": "auto",
+            "showPoints": "always",
             "spanNulls": false,
             "stacking": {
               "group": "A",
@@ -565,9 +565,7 @@
               "mode": "off"
             }
           },
-          "fieldMinMax": false,
           "mappings": [],
-          "noValue": "0",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -580,8 +578,7 @@
                 "value": 80
               }
             ]
-          },
-          "unit": "percentunit"
+          }
         },
         "overrides": []
       },
@@ -591,7 +588,7 @@
         "x": 12,
         "y": 6
       },
-      "id": 7,
+      "id": 10,
       "options": {
         "legend": {
           "calcs": [],
@@ -612,6 +609,7 @@
             "uid": "${DS_INFLUXDB-INFLUXQL}"
           },
           "groupBy": [],
+          "hide": false,
           "measurement": "mvcc-conflict-counter",
           "orderByTime": "ASC",
           "policy": "default",
@@ -624,6 +622,12 @@
                   "count"
                 ],
                 "type": "field"
+              },
+              {
+                "params": [
+                  "$WINDOW_10S"
+                ],
+                "type": "moving_average"
               }
             ]
           ],
@@ -655,6 +659,49 @@
                   "count"
                 ],
                 "type": "field"
+              },
+              {
+                "params": [
+                  "$WINDOW_10S"
+                ],
+                "type": "moving_average"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "host::tag",
+              "operator": "=",
+              "value": "node-0"
+            }
+          ]
+        },
+        {
+          "alias": "validation errors",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB-INFLUXQL}"
+          },
+          "groupBy": [],
+          "hide": false,
+          "measurement": "invalid-proofs-count",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "count"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [
+                  "$WINDOW_10S"
+                ],
+                "type": "moving_average"
               }
             ]
           ],
@@ -667,43 +714,7 @@
           ]
         }
       ],
-      "title": "Conflict Rate",
-      "transformations": [
-        {
-          "id": "calculateField",
-          "options": {
-            "alias": "total",
-            "binary": {
-              "left": "conflicts",
-              "right": "confirmed"
-            },
-            "mode": "binary",
-            "reduce": {
-              "include": [
-                "conflicts",
-                "confirmed"
-              ],
-              "reducer": "sum"
-            }
-          }
-        },
-        {
-          "id": "calculateField",
-          "options": {
-            "alias": "conflict rate",
-            "binary": {
-              "left": "conflicts",
-              "operator": "/",
-              "right": "total"
-            },
-            "mode": "binary",
-            "reduce": {
-              "reducer": "sum"
-            },
-            "replaceFields": true
-          }
-        }
-      ],
+      "title": "Tx Confirmation",
       "type": "timeseries"
     },
     {
@@ -854,11 +865,11 @@
             "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
-            "pointSize": 3,
+            "pointSize": 5,
             "scaleDistribution": {
               "type": "linear"
             },
-            "showPoints": "always",
+            "showPoints": "auto",
             "spanNulls": false,
             "stacking": {
               "group": "A",
@@ -868,7 +879,9 @@
               "mode": "off"
             }
           },
+          "fieldMinMax": false,
           "mappings": [],
+          "noValue": "0",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -881,7 +894,8 @@
                 "value": 80
               }
             ]
-          }
+          },
+          "unit": "percentunit"
         },
         "overrides": []
       },
@@ -891,7 +905,7 @@
         "x": 12,
         "y": 12
       },
-      "id": 8,
+      "id": 11,
       "options": {
         "legend": {
           "calcs": [],
@@ -906,13 +920,13 @@
       },
       "targets": [
         {
-          "alias": "conflicts",
+          "alias": "validation errors",
           "datasource": {
             "type": "influxdb",
             "uid": "${DS_INFLUXDB-INFLUXQL}"
           },
           "groupBy": [],
-          "measurement": "mvcc-conflict-counter",
+          "measurement": "invalid-proofs-count",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -924,12 +938,6 @@
                   "count"
                 ],
                 "type": "field"
-              },
-              {
-                "params": [
-                  "$WINDOW_10S"
-                ],
-                "type": "moving_average"
               }
             ]
           ],
@@ -961,12 +969,6 @@
                   "count"
                 ],
                 "type": "field"
-              },
-              {
-                "params": [
-                  "$WINDOW_10S"
-                ],
-                "type": "moving_average"
               }
             ]
           ],
@@ -979,7 +981,43 @@
           ]
         }
       ],
-      "title": "Tx Confirmation",
+      "title": "Validation Error Rate",
+      "transformations": [
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "total",
+            "binary": {
+              "left": "validation errors",
+              "right": "confirmed"
+            },
+            "mode": "binary",
+            "reduce": {
+              "include": [
+                "conflicts",
+                "confirmed"
+              ],
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "validation error rate",
+            "binary": {
+              "left": "validation errors",
+              "operator": "/",
+              "right": "total"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": true
+          }
+        }
+      ],
       "type": "timeseries"
     },
     {
@@ -1100,16 +1138,199 @@
       ],
       "title": "Host Memory Usage",
       "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "${DS_INFLUXDB-INFLUXQL}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "bars",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "fieldMinMax": false,
+          "mappings": [],
+          "noValue": "0",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 12,
+        "x": 12,
+        "y": 18
+      },
+      "id": 7,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "alias": "conflicts",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB-INFLUXQL}"
+          },
+          "groupBy": [],
+          "measurement": "mvcc-conflict-counter",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "count"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "host::tag",
+              "operator": "=",
+              "value": "node-0"
+            }
+          ]
+        },
+        {
+          "alias": "confirmed",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB-INFLUXQL}"
+          },
+          "groupBy": [],
+          "hide": false,
+          "measurement": "tx-confirmatory.confirmed",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "count"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "host::tag",
+              "operator": "=",
+              "value": "node-0"
+            }
+          ]
+        }
+      ],
+      "title": "Conflict Rate",
+      "transformations": [
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "total",
+            "binary": {
+              "left": "conflicts",
+              "right": "confirmed"
+            },
+            "mode": "binary",
+            "reduce": {
+              "include": [
+                "conflicts",
+                "confirmed"
+              ],
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "conflict rate",
+            "binary": {
+              "left": "conflicts",
+              "operator": "/",
+              "right": "total"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": true
+          }
+        }
+      ],
+      "type": "timeseries"
     }
   ],
-  "refresh": "10s",
+  "refresh": "",
   "schemaVersion": 39,
   "tags": [],
   "templating": {
     "list": [
       {
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "5",
           "value": "5"
         },
@@ -1237,7 +1458,7 @@
       },
       {
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "3",
           "value": "3"
         },
@@ -1302,8 +1523,8 @@
     ]
   },
   "time": {
-    "from": "now-30m",
-    "to": "now"
+    "from": "2024-05-09T08:28:57.287Z",
+    "to": "2024-05-09T08:43:30.171Z"
   },
   "timepicker": {},
   "timezone": "browser",
