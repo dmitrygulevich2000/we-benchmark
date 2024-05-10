@@ -4,7 +4,7 @@ const path = require('node:path')
 const { WECounterDocker } = require('./Contract')
 
 if (require.main === module) {
-    benchmark(1, 100).then((txIds) => {
+    benchmark(1, 3000).then((txIds) => {
         console.error(`successfully broadcasted ${txIds.length} transactions`)
         for (id of txIds) {
             console.log(id)

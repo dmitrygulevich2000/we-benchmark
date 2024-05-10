@@ -18,7 +18,7 @@ class WECounterDocker extends WEContext {
         ], signOnly)
     }
 
-    light_increment(by, signOnly = false) {
+    light_increment(by, signOnly = false, atomic = false) {
         return this.call([
             {
                 key: 'action', value: 'light_increment', type: 'string'
@@ -26,10 +26,10 @@ class WECounterDocker extends WEContext {
             {
                 key: 'by', value: by, type: 'integer'
             }
-        ], signOnly)
+        ], signOnly, atomic)
     }
 
-    heavy_increment(by, signOnly = false) {
+    heavy_increment(by, signOnly = false, atomic = false) {
         return this.call([
             {
                 key: 'action', value: 'heavy_increment', type: 'string'
@@ -37,10 +37,10 @@ class WECounterDocker extends WEContext {
             {
                 key: 'by', value: by, type: 'integer'
             }
-        ], signOnly)
+        ], signOnly, atomic)
     }
 
-    increment(by, signOnly = false) {
+    increment(by, signOnly = false, atomic = false) {
         return this.call([
             {
                 key: 'action', value: 'increment', type: 'string'
@@ -48,10 +48,10 @@ class WECounterDocker extends WEContext {
             {
                 key: 'by', value: by, type: 'integer'
             }
-        ], signOnly)
+        ], signOnly, atomic)
     }
 
-    multiply(by, signOnly = false) {
+    multiply(by, signOnly = false, atomic = false) {
         return this.call([
             {
                 key: 'action', value: 'multiply', type: 'string'
@@ -59,10 +59,10 @@ class WECounterDocker extends WEContext {
             {
                 key: 'by', value: by, type: 'integer'
             }
-        ], signOnly)
+        ], signOnly, atomic)
     }
 
-    decrement(by, signOnly = false) {
+    decrement(by, signOnly = false, atomic = false) {
         return this.call([
             {
                 key: 'action', value: 'decrement', type: 'string'
@@ -70,10 +70,10 @@ class WECounterDocker extends WEContext {
             {
                 key: 'by', value: by, type: 'integer'
             }
-        ], signOnly)
+        ], signOnly, atomic)
     }
 
-    set(to, signOnly = false) {
+    set(to, signOnly = false, atomic = false) {
         return super.call([
             {
                 key: 'action', value: 'set', type: 'string'
@@ -81,10 +81,10 @@ class WECounterDocker extends WEContext {
             {
                 key: 'to', value: to, type: 'integer'
             }
-        ], signOnly)
+        ], signOnly, atomic)
     }
 
-    faulty_set(to, signOnly = false) {
+    faulty_set(to, signOnly = false, atomic = false) {
         return this.call([
             {
                 key: 'action', value: 'faulty_set', type: 'string'
@@ -92,7 +92,7 @@ class WECounterDocker extends WEContext {
             {
                 key: 'to', value: to, type: 'integer'
             }
-        ], signOnly)
+        ], signOnly, atomic)
     }
 }
 

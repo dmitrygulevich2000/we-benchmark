@@ -15,7 +15,7 @@ async function do_calls(count) {
 }
 
 if (require.main === module) {
-    do_calls(500).then((tx_ids) => {
+    do_calls(1000).then((tx_ids) => {
         for (id of tx_ids) {
             console.log(id)
         }

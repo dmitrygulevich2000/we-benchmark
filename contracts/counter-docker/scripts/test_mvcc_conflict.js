@@ -1,12 +1,6 @@
 const { WECounterDocker } = require("./Contract");
 
-async function main() {
-    const contract = await WECounterDocker.load()
-    const sentTxs = await Promise.all([contract.decrement(1), contract.set(0)])
-    return sentTxs.map((tx) => { return tx.id })
-}
-
-main().then((tx_ids) => {
+testExecutableTxs().then((tx_ids) => {
     for (id of tx_ids) {
         console.log(id)
     }
@@ -15,7 +9,27 @@ main().then((tx_ids) => {
     console.error(err)
 });
 
-// results:
+// here no mvcc conflict happens
+async function testAtomicVSExetutable() {
+    const contract = await WECounterDocker.load()
+    const sentTxs = await Promise.all([
+        contract.sendAtomicTransaction([await contract.decrement(1, true, true), await contract.light_increment(2, true, true)]), 
+        contract.set(0),
+    ])
+    return sentTxs.map((tx) => { return tx.id })
+}
+
+// see results below
+async function testExecutableTxs() {
+    const contract = await WECounterDocker.load()
+    const sentTxs = await Promise.all([
+        contract.decrement(1), 
+        contract.set(0),
+    ])
+    return sentTxs.map((tx) => { return tx.id })
+}
+
+// results of testExecutableTxs:
 // 7P1LUXyZo9x6bv6uMovUMTsQbkfqeaSMzhMkSNE5M6iy - decrement tx id
 // 2WyezyxW8AStsuGm7smWDohcTVj32Thp51PKVjbheA5Z - set tx id
 

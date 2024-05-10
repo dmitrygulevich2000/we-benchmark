@@ -162,7 +162,7 @@ class WEContext {
         return this.sdk.signer.getSignedTx(tx, this.keyPair).then((signedTx) => { return this.sdk.broadcast(signedTx) })
     }
 
-    async call(params, signOnly = false) {
+    async call(params, signOnly = false, atomic = false) {
         this.#checkDefined('contractId', 'contractVersion')
 
         const tx = TRANSACTIONS.CallContract.V5({
@@ -172,6 +172,7 @@ class WEContext {
             senderPublicKey: await this.keyPair.publicKey(),
             params: params,
             payments: [],
+            atomicBadge: atomic ? {} : null,
         })
 
         if (signOnly) {
@@ -194,6 +195,18 @@ class WEContext {
             contractEngine: 'wasm',
         })
 
+        if (signOnly) {
+            return this.sdk.signer.getSignedTx(tx, this.keyPair)
+        }
+        return this.sdk.signer.getSignedTx(tx, this.keyPair).then((signedTx) => { return this.sdk.broadcast(signedTx) })
+    }
+
+    async sendAtomicTransaction(signedTxns, signOnly = false) {
+        const tx = TRANSACTIONS.Atomic.V1({
+            fee: 0,
+            senderPublicKey: await this.keyPair.publicKey(),
+            transactions: signedTxns.map((tx) => { return tx.getRawBody() }),
+        })
         if (signOnly) {
             return this.sdk.signer.getSignedTx(tx, this.keyPair)
         }

@@ -1323,7 +1323,7 @@
       "type": "timeseries"
     }
   ],
-  "refresh": "",
+  "refresh": "10s",
   "schemaVersion": 39,
   "tags": [],
   "templating": {
@@ -1399,7 +1399,7 @@
       },
       {
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "10s",
           "value": "10s"
         },
@@ -1523,13 +1523,13 @@
     ]
   },
   "time": {
-    "from": "2024-05-09T08:28:57.287Z",
-    "to": "2024-05-09T08:43:30.171Z"
+    "from": "now-30m",
+    "to": "now"
   },
   "timepicker": {},
   "timezone": "browser",
   "title": "WE-node",
   "uid": "adkdhzc1l3q4gb",
-  "version": 2,
+  "version": 3,
   "weekStart": ""
 }
