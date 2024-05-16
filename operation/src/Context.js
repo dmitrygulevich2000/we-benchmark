@@ -74,6 +74,11 @@ class WEContext {
         return this.sdk.contracts.contractState(this.context.contractId)
     }
 
+    async contractKeys(keys) {
+        this.#checkDefined('contractId')
+        return this.sdk.contracts.getKeys(this.context.contractId, keys)
+    }
+
     async permission(op, role) {
         this.#checkDefined('nodeAddress', 'nodeKeystorePassword', 'address')
         const tx = {

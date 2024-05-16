@@ -1,7 +1,7 @@
 version: '3'
 services:
   node-0:
-    image: wavesenterprise/node:v1.13.0-mipt
+    image: wavesenterprise/node:v1.13.0-mipt-opt-seq
     ports:
       - "6862:6862"
       - "6864:6864"
@@ -21,7 +21,7 @@ services:
     depends_on:
       - influxdb
   node-1:
-    image: wavesenterprise/node:v1.13.0-mipt
+    image: wavesenterprise/node:v1.13.0-mipt-opt-seq
     ports:
       - "6872:6862"
       - "6874:6864"
@@ -41,7 +41,7 @@ services:
     depends_on:
       - influxdb
   node-2:
-    image: wavesenterprise/node:v1.13.0-mipt
+    image: wavesenterprise/node:v1.13.0-mipt-opt-seq
     ports:
       - "6882:6862"
       - "6884:6864"

@@ -1,0 +1,17 @@
+{
+  "name": "we-cumsums-docker",
+  "version": "0.0.1",
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@wavesenterprise/contract-core": "^1.2.11",
+    "@wavesenterprise/crypto-utils": "^1.0.1",
+    "@wavesenterprise/signer": "^1.0.5"
+  }
+}

@@ -2,7 +2,7 @@ const { WEContext } = require('we-operation')
 
 async function main() {
     const ctx = await WEContext.load();
-    return (await ctx.override({address: '3NopUHbfdwfsT4KtnbcKCkAuDqpnuSsUdFp'})).permission('remove', 'contract_validator')
+    return ctx.permission('add', 'contract_developer')
 }
 
 if (require.main === module) {

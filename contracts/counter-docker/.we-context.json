@@ -3,7 +3,7 @@
     "contractName": "CounterDocker",
     "image": "localhost:5000/we-counter:0.0.2",
     "imageHash": "f859eb614fe26281455b7497ca34dde0bb93ec5fda03e832f7dc8c192240fbb9",
-    "contractId": "FUCBfZ65PNKraQot6HSxHP1bqjEEHvVpLsvW6jq2VNeZ",
+    "contractId": "7moiaz8qL62WNR4252mr4SGBVGD8zjEXr4oZBaS5CuNT",
     "contractVersion": 1,
     "contractValidation": false
 }

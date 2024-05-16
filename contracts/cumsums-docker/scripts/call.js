@@ -1,9 +1,9 @@
-const { WECounterDocker } = require('./Contract')
+const { WECumSumsDocker } = require('./Contract')
 
 // TODO support command-line arguments
 async function main() {
-    const contract = await WECounterDocker.load();
-    return contract.set(0)
+    const contract = await WECumSumsDocker.load();
+    return contract.add(18, 1)
 }
 
 if (require.main === module) {

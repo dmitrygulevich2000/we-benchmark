@@ -1,0 +1,9 @@
+{
+    "nodeUrl": "http://localhost:6862",
+    "contractName": "CumsumsDocker",
+    "image": "localhost:5000/we-cumsums:0.0.1",
+    "imageHash": "2942fcf06a5f7845407e0746433bd82b978f27423d3a967211af6a2e51bdf868",
+    "contractId": "9hQB2fQNaPRzfP5x9Lh6KzA9Etv44gdeZ73TdVpakasy",
+    "contractVersion": 1,
+    "contractValidation": false
+}
