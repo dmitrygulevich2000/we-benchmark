@@ -1,8 +1,8 @@
 {
   "__inputs": [
     {
-      "name": "DS_INFLUXDB-INFLUXQL",
-      "label": "influxdb-influxql",
+      "name": "DS_INFLUXDB",
+      "label": "influxdb",
       "description": "",
       "type": "datasource",
       "pluginId": "influxdb",
@@ -61,7 +61,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB-INFLUXQL}"
+        "uid": "${DS_INFLUXDB}"
       },
       "fieldConfig": {
         "defaults": {
@@ -113,7 +113,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB-INFLUXQL}"
+            "uid": "${DS_INFLUXDB}"
           },
           "groupBy": [],
           "measurement": "block",
@@ -148,7 +148,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB-INFLUXQL}"
+        "uid": "${DS_INFLUXDB}"
       },
       "fieldConfig": {
         "defaults": {
@@ -203,7 +203,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB-INFLUXQL}"
+            "uid": "${DS_INFLUXDB}"
           },
           "groupBy": [],
           "measurement": "block_timestamp",
@@ -236,7 +236,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB-INFLUXQL}"
+        "uid": "${DS_INFLUXDB}"
       },
       "fieldConfig": {
         "defaults": {
@@ -317,7 +317,7 @@
           "alias": "txs.moving_average",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB-INFLUXQL}"
+            "uid": "${DS_INFLUXDB}"
           },
           "groupBy": [
             {
@@ -367,7 +367,7 @@
           "alias": "block.txs",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB-INFLUXQL}"
+            "uid": "${DS_INFLUXDB}"
           },
           "groupBy": [
             {
@@ -414,7 +414,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB-INFLUXQL}"
+        "uid": "${DS_INFLUXDB}"
       },
       "fieldConfig": {
         "defaults": {
@@ -493,7 +493,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB-INFLUXQL}"
+            "uid": "${DS_INFLUXDB}"
           },
           "groupBy": [],
           "measurement": "utx-pool-size",
@@ -526,7 +526,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB-INFLUXQL}"
+        "uid": "${DS_INFLUXDB}"
       },
       "fieldConfig": {
         "defaults": {
@@ -606,7 +606,7 @@
           "alias": "conflicts",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB-INFLUXQL}"
+            "uid": "${DS_INFLUXDB}"
           },
           "groupBy": [],
           "hide": false,
@@ -643,7 +643,7 @@
           "alias": "confirmed",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB-INFLUXQL}"
+            "uid": "${DS_INFLUXDB}"
           },
           "groupBy": [],
           "hide": false,
@@ -680,7 +680,7 @@
           "alias": "validation errors",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB-INFLUXQL}"
+            "uid": "${DS_INFLUXDB}"
           },
           "groupBy": [],
           "hide": false,
@@ -720,7 +720,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB-INFLUXQL}"
+        "uid": "${DS_INFLUXDB}"
       },
       "fieldConfig": {
         "defaults": {
@@ -800,7 +800,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB-INFLUXQL}"
+            "uid": "${DS_INFLUXDB}"
           },
           "groupBy": [],
           "measurement": "host.cpu",
@@ -840,7 +840,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB-INFLUXQL}"
+        "uid": "${DS_INFLUXDB}"
       },
       "fieldConfig": {
         "defaults": {
@@ -923,7 +923,7 @@
           "alias": "validation errors",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB-INFLUXQL}"
+            "uid": "${DS_INFLUXDB}"
           },
           "groupBy": [],
           "measurement": "invalid-proofs-count",
@@ -953,7 +953,7 @@
           "alias": "confirmed",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB-INFLUXQL}"
+            "uid": "${DS_INFLUXDB}"
           },
           "groupBy": [],
           "hide": false,
@@ -1023,7 +1023,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB-INFLUXQL}"
+        "uid": "${DS_INFLUXDB}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1103,7 +1103,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB-INFLUXQL}"
+            "uid": "${DS_INFLUXDB}"
           },
           "groupBy": [],
           "measurement": "host.memory",
@@ -1142,7 +1142,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB-INFLUXQL}"
+        "uid": "${DS_INFLUXDB}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1225,7 +1225,7 @@
           "alias": "conflicts",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB-INFLUXQL}"
+            "uid": "${DS_INFLUXDB}"
           },
           "groupBy": [],
           "measurement": "mvcc-conflict-counter",
@@ -1240,6 +1240,12 @@
                   "count"
                 ],
                 "type": "field"
+              },
+              {
+                "params": [
+                  "$WINDOW_10S"
+                ],
+                "type": "moving_average"
               }
             ]
           ],
@@ -1255,7 +1261,7 @@
           "alias": "confirmed",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB-INFLUXQL}"
+            "uid": "${DS_INFLUXDB}"
           },
           "groupBy": [],
           "hide": false,
@@ -1271,6 +1277,12 @@
                   "count"
                 ],
                 "type": "field"
+              },
+              {
+                "params": [
+                  "$WINDOW_10S"
+                ],
+                "type": "moving_average"
               }
             ]
           ],
@@ -1323,7 +1335,7 @@
       "type": "timeseries"
     }
   ],
-  "refresh": "10s",
+  "refresh": "30s",
   "schemaVersion": 39,
   "tags": [],
   "templating": {
@@ -1331,71 +1343,23 @@
       {
         "current": {
           "selected": false,
-          "text": "5",
-          "value": "5"
+          "text": "17",
+          "value": "17"
         },
         "description": "window size in blocks for averaging tx count",
         "hide": 0,
-        "includeAll": false,
         "label": "WINDOW_BLOCKS",
-        "multi": false,
         "name": "WINDOW_BLOCKS",
         "options": [
           {
             "selected": true,
-            "text": "5",
-            "value": "5"
-          },
-          {
-            "selected": false,
-            "text": "10",
-            "value": "10"
-          },
-          {
-            "selected": false,
-            "text": "15",
-            "value": "15"
-          },
-          {
-            "selected": false,
-            "text": "20",
-            "value": "20"
-          },
-          {
-            "selected": false,
-            "text": "25",
-            "value": "25"
-          },
-          {
-            "selected": false,
-            "text": "30",
-            "value": "30"
-          },
-          {
-            "selected": false,
-            "text": "35",
-            "value": "35"
-          },
-          {
-            "selected": false,
-            "text": "40",
-            "value": "40"
-          },
-          {
-            "selected": false,
-            "text": "45",
-            "value": "45"
-          },
-          {
-            "selected": false,
-            "text": "50",
-            "value": "50"
+            "text": "17",
+            "value": "17"
           }
         ],
-        "query": "5, 10, 15, 20, 25, 30, 35, 40, 45, 50",
-        "queryValue": "",
+        "query": "17",
         "skipUrlSync": false,
-        "type": "custom"
+        "type": "textbox"
       },
       {
         "current": {
@@ -1417,6 +1381,11 @@
           },
           {
             "selected": false,
+            "text": "20s",
+            "value": "20s"
+          },
+          {
+            "selected": false,
             "text": "30s",
             "value": "30s"
           },
@@ -1424,6 +1393,11 @@
             "selected": false,
             "text": "1m",
             "value": "1m"
+          },
+          {
+            "selected": false,
+            "text": "90s",
+            "value": "90s"
           },
           {
             "selected": false,
@@ -1451,16 +1425,16 @@
             "value": "6m"
           }
         ],
-        "query": "10s, 30s, 1m, 2m, 3m, 4m, 5m, 6m",
+        "query": "10s, 20s, 30s, 1m, 90s, 2m, 3m, 4m, 5m, 6m",
         "queryValue": "",
         "skipUrlSync": false,
         "type": "custom"
       },
       {
         "current": {
-          "selected": false,
-          "text": "3",
-          "value": "3"
+          "selected": true,
+          "text": "6",
+          "value": "6"
         },
         "description": "window size in 10s ranges for averaging stats",
         "hide": 0,
@@ -1475,14 +1449,19 @@
             "value": "1"
           },
           {
-            "selected": true,
+            "selected": false,
             "text": "3",
             "value": "3"
           },
           {
-            "selected": false,
+            "selected": true,
             "text": "6",
             "value": "6"
+          },
+          {
+            "selected": false,
+            "text": "9",
+            "value": "9"
           },
           {
             "selected": false,
@@ -1515,7 +1494,7 @@
             "value": "42"
           }
         ],
-        "query": "1, 3, 6, 12, 18, 24, 30, 36, 42",
+        "query": "1, 3, 6, 9, 12, 18, 24, 30, 36, 42",
         "queryValue": "",
         "skipUrlSync": false,
         "type": "custom"
@@ -1530,6 +1509,6 @@
   "timezone": "browser",
   "title": "WE-node",
   "uid": "adkdhzc1l3q4gb",
-  "version": 3,
+  "version": 4,
   "weekStart": ""
 }
