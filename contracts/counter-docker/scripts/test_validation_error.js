@@ -1,6 +1,7 @@
 const { WECounterDocker } = require("./Contract");
 
 // contract must be deployed with validationPolicy == 'majority'
+// also need to configure sleeps in containers
 async function main() {
     const contract = await WECounterDocker.load()
     const sentTxs = await Promise.all([contract.multiply(10), contract.increment(1)])
