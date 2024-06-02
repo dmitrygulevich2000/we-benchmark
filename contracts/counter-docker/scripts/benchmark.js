@@ -4,7 +4,7 @@ const path = require('node:path')
 const { WECounterDocker } = require('./Contract')
 
 if (require.main === module) {
-    benchmarkConcurrentBroadcast(10, 160).then((txIds) => {
+    benchmark(50, 50).then((txIds) => {
         console.error(`successfully broadcasted ${txIds.length} transactions`)
         for (id of txIds) {
             console.log(id)
@@ -13,6 +13,15 @@ if (require.main === module) {
     }).catch((err) => {
         console.error(err)
     });
+}
+
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
 }
 
 async function benchmark(contractsCount, txnsOnEachCount) {
