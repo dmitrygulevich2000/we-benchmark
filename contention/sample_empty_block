@@ -1,0 +1,16 @@
+[ {
+  "reference" : "5cXD7a9YMyfrsg4kVPGnwg1NpwfCEbhgmp7veh3LkgJZVDwhRzKuCNqmUnEWjjZsBLFtpkJjRgEEQLdEd4xMMBYL",
+  "blocksize" : 4790,
+  "features" : [ ],
+  "signature" : "4MWfZUDY93Fxqz4eWQjwSZQ49J5j9MGqTXsnjygGxCmdEzc9JgsEct8332DjahAHBbguAEDEoLeAbnqi2VMfF1ww",
+  "fee" : 0,
+  "generator" : "3Nxnb2bodmLoAqS6ya9ZmhPpE5LD2rdvfHr",
+  "transactionCount" : 0,
+  "transactions" : [],
+  "version" : 3,
+  "poa-consensus" : {
+    "overall-skipped-rounds" : 389718
+  },
+  "timestamp" : 1717770612523,
+  "height" : 10681
+} ]
